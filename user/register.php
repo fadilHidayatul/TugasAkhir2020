@@ -62,11 +62,11 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
                 $token = "";
                 $id_nis = $row_nis['id_nis'];
                 $kelas = $row_nis['kelas'];
-                
+
                  $query = "INSERT INTO tb_user(id_nis,username,nis,kelas,password,token) 
-                 VALUES(:idnis,:user,:nis,:kelas,:pass,:token)";
+                 VALUES(:id_nis,:user,:nis,:kelas,:pass,:token)";
                  $statement = $conn->prepare($query);
-                 $statement->bindParam(":idnis", $id_nis);
+                 $statement->bindParam(":id_nis", $id_nis);
                  $statement->bindParam(":user",$name);
                  $statement->bindParam(":nis", $nis);
                  $statement->bindParam(":kelas", $kelas);

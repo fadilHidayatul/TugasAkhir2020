@@ -40,10 +40,11 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
         $returnData = msg(0, 422, 'Your name must be at least 3 character');
     }else{
         try{
-            $chk_nis = "SELECT nis FROM tb_nis WHERE nis=:nis";
+            $chk_nis = "SELECT * FROM tb_nis WHERE nis=:nis";
             $nis_stat = $conn->prepare($chk_nis);
             $nis_stat->bindParam(":nis",$nis);
             $nis_stat->execute(); //cek nis ada dikelas tsb
+            $row_nis = $nis_stat->fetch(PDO::FETCH_ASSOC);
 
             $query = "SELECT * FROM tb_user WHERE nis=:nis";
             $already = $conn->prepare($query);
@@ -58,11 +59,19 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
                 $returnData = msg(0,422,'Nis sudah didaftarkan');
             }else {
                 $stringPass = password_hash($pass, PASSWORD_DEFAULT);
-                 $query = "INSERT INTO tb_user(username,nis,password) VALUES(:user,:nis,:pass)";
+                $token = "";
+                $id_nis = $row_nis['id_nis'];
+                $kelas = $row_nis['kelas'];
+                
+                 $query = "INSERT INTO tb_user(id_nis,username,nis,kelas,password,token) 
+                 VALUES(:idnis,:user,:nis,:kelas,:pass,:token)";
                  $statement = $conn->prepare($query);
+                 $statement->bindParam(":idnis", $id_nis);
                  $statement->bindParam(":user",$name);
                  $statement->bindParam(":nis", $nis);
+                 $statement->bindParam(":kelas", $kelas);
                  $statement->bindParam(":pass", $stringPass);
+                 $statement->bindParam(":token", $token);
                  $statement->execute();
  
                 $returnData = msg(1,200,'Success Register');

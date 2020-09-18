@@ -35,9 +35,9 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
     $pass = trim($_POST['password']);
 
     if (strlen($pass)<8) {
-        $returnData = msg(0, 422, 'Password must be at least 8 character');
+        $returnData = msg(0, 422, 'Password Kamu Minimal 8 Karakter');
     }elseif (strlen($name)<3) {
-        $returnData = msg(0, 422, 'Your name must be at least 3 character');
+        $returnData = msg(0, 422, 'Nama Kamu Minimal 3 karakter');
     }else{
         try{
             $chk_nis = "SELECT * FROM tb_nis WHERE nis=:nis";
@@ -54,9 +54,9 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
             
 
             if (!$nis_stat->rowCount()) { //nis tidak ditemukan
-                $returnData = msg(0,422,'Nis tidak ada, mungkin anda bukan dari kelas ini');
+                $returnData = msg(0,422,'NIS tidak ada, silahkan hubungi guru untuk mendaftarkan NIS');
             }elseif($nis == $row['nis']){
-                $returnData = msg(0,422,'Nis sudah didaftarkan');
+                $returnData = msg(0,422,'NIS sudah didaftarkan');
             }else {
                 $stringPass = password_hash($pass, PASSWORD_DEFAULT);
                 $token = "";

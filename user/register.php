@@ -34,10 +34,10 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
     $nis = trim($_POST['nis']);
     $pass = trim($_POST['password']);
 
-    if (strlen($pass)<8) {
-        $returnData = msg(0, 422, 'Password Kamu Minimal 8 Karakter');
-    }elseif (strlen($name)<3) {
+    if (strlen($name)<3) {
         $returnData = msg(0, 422, 'Nama Kamu Minimal 3 karakter');
+    }else if (strlen($pass)<8) {
+        $returnData = msg(0, 422, 'Password Kamu Minimal 8 Karakter');
     }else{
         try{
             $chk_nis = "SELECT * FROM tb_nis WHERE nis=:nis";

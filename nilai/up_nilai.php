@@ -75,11 +75,12 @@ if ($_SERVER["REQUEST_METHOD"]!="POST") {
         //insert
     }else{
         $query = "UPDATE tb_nilai SET nilai=:nilai 
-                 WHERE id_user=:id_user AND id_matpel=:id_matpel";
+                 WHERE id_user=:id_user AND id_matpel=:id_matpel AND kelas=:kelas";
         $statement = $conn->prepare($query);
         $statement->bindParam(":nilai", $nilai);
         $statement->bindParam(":id_user", $idUser);
         $statement->bindParam(":id_matpel", $idMatpel);
+        $statement->bindParam(":kelas", $kelas);
         $statement->execute();
 
         $returnData = msg(1,200,"Nilai masuk!!");

@@ -46,7 +46,8 @@ else{
                 "id_user" => $row['id_user'],
                 "username" => $row['username'],
                 "nis" => $row['nis'],
-                "kelas" => $row['kelas']
+                "kelas" => $row['kelas'],
+                "token" => $row['token']
             );
             array_push($data["data"], $item);
         }

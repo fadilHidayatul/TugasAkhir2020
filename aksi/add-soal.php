@@ -42,7 +42,7 @@
 
             try{
                 if (in_array($ext, $ext_allow) === true) {
-                    if($size < 1044070){
+                    // if($size < 1044070){
     
                         switch($matpel){
                             case "1" :  copy($tmp, '../soal/img/b.indo/'.$img_soal);
@@ -75,9 +75,9 @@
     
                          header('Location:../?page=soal&status=berhasil');
                          
-                    }else {
-                        header('Location:../?page=soal&status=gambar');
-                    }
+                    // }else {
+                    //     header('Location:../?page=soal&status=gambar');
+                    // }
                 }else {
                     header('Location:../?page=soal&status=format');
                 }

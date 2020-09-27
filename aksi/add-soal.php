@@ -32,7 +32,7 @@
             header('Location:../?page=soal&status=berhasil');
 
         }else{
-            $ext_allow = array('png','jpg');
+            $ext_allow = array('png','jpg','jpeg');
             $img_soal = $_FILES['image']['name'];
             $x=explode('.' , $img_soal);
             $ext = strtolower(end($x));

@@ -39,7 +39,6 @@
             
         </div> 
             <!-- card get soal--> 
-
        
             <table class="table">
                 <thead class="red ligthen-1 white-text text-center">

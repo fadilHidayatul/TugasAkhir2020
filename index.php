@@ -25,7 +25,7 @@
     <div id="app">
         <!--Navbar -->
     <nav class="mb-5 navbar navbar-expand-lg navbar-light bg-danger ">
-        <a class="navbar-brand text-white" href="#" >Web Admin Ujian Online</a>
+        <a class="navbar-brand text-white" href="#" >Web Input Ujian Online</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
